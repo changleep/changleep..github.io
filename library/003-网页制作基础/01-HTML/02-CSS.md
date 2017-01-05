@@ -22,43 +22,43 @@
 
 ## CSS常常忽略的细节
 ### 背景图片属性
--背景图片:background-image:url()属性 body{background-image:url(http://www.kkh86.com/it/html-base/img/img-demo.jpg);}
--background-repeat:no-repeat;//不重复显示 默认重复显示并且平铺
--background-size:width,height;//图片大小
--background-position:50px 100px;//偏移量 右 下
--简写 background:url('xxxx.jpg') no-repeat 50 100px;
+- 背景图片:background-image:url()属性 body{background-image:url(http://www.kkh86.com/it/html-base/img/img-demo.jpg);}
+- background-repeat:no-repeat;//不重复显示 默认重复显示并且平铺
+- background-size:width,height;//图片大小
+- background-position:50px 100px;//偏移量 右 下
+- 简写 background:url('xxxx.jpg') no-repeat 50 100px;
 
 ### 显示属性
--Display: 可以通过document.getElementById('xxx').style.display ='block/none';//隐藏/显示
--visibility:visible/hidden 与上面的区别是保留隐藏的占位.
+- Display: 可以通过document.getElementById('xxx').style.display ='block/none';//隐藏/显示
+- visibility:visible/hidden 与上面的区别是保留隐藏的占位.
 
 ### 字体属性
-font-weight 加粗
-font-style  倾斜
-text-align  文字居中
-text-indent 标签缩进
-letter-spacing 文字间隔
+- font-weight 加粗
+- font-style  倾斜
+- text-align  文字居中
+- text-indent 标签缩进
+- letter-spacing 文字间隔
 
 ### css样式继承
 div标签会继承样式 p  ul li标签会继承父标签的样式
 
 ### 外边距
--与当前元素的外部边距
--margin-top+margin-left使用
--margin-left:-20px;表示和左边元素重叠20px;
--简写
--margin:10px;//上下左右边距是10px
--margin:10px 20px;//上下10 左右20px
--margin：10px 20px 30px;/上10 左右20 下30
--margin:10px,20px,30px,40px; 上 下 左 右
--没有边距;margin:0;
--居中;margin:0 auto;//上下没有边距 左右居中
--继承性：margin属性不能被子标签继承 需要有选择器自定义该属性
+- 与当前元素的外部边距
+- margin-top+margin-left使用
+- margin-left:-20px;表示和左边元素重叠20px;
+-简写方式如下
+- margin:10px;//上下左右边距是10px
+- margin:10px 20px;//上下10 左右20px
+- margin：10px 20px 30px;/上10 左右20 下30
+- margin:10px,20px,30px,40px; 上 下 左 右
+- 没有边距;margin:0;
+- 居中;margin:0 auto;//上下没有边距 左右居中
+- 继承性：margin属性不能被子标签继承 需要有选择器自定义该属性
 
 ### 内边距
--边框border:1px dotted/solid red; //边框距离 点状/实线 颜色
--padding-top:10px;//元素在原有高度基础乡下增加10px;  
--padding:10px; //上下增加10px;
+- 边框border:1px dotted/solid red; //边框距离 点状/实线 颜色
+- padding-top:10px;//元素在原有高度基础乡下增加10px;  
+- padding:10px; //上下增加10px;
 
 ### 权重
 - !important 优先使用该样式
