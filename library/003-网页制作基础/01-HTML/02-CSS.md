@@ -40,7 +40,11 @@
 - letter-spacing 文字间隔
 
 ### css样式继承
-div标签会继承样式 p  ul li标签会继承父标签的样式
+- div标签会继承样式 p  ul li标签会继承父标签的样式
+
+### 浮动属性
+- float:right/left; div平级的元素按float属性的左右依次渲染 左右距离不够才网下一行放置 div中的子元素永远包在父div中.
+
 
 ### 外边距
 - 与当前元素的外部边距
@@ -69,3 +73,23 @@ div标签会继承样式 p  ul li标签会继承父标签的样式
 ### 重置
 - 浏览器会默认样式 如margin padding   a标签等.这时候需要我们根据需求重置样式.
 - *{margin:0; padding:0;} a{color:#428BDD; text-decoration:none;} ul{list-style:none;}/*等等...*/
+
+### 绝对定位position属性
+- 文档流是按照顺序解析下来 绝对定位则不是按照顺序 是按照自己固定的定位 使用场景：广告漂浮在某个固定的位置.
+- {position:absolute；left:20px;top:20px;}
+
+
+### 相对定位
+- 相对于父容器的定位
+-父容器相对定位后，子容器绝对定位是相对于父容器而言的.
+
+### 行高
+- line-height: '等于div的height'
+
+### 内容越界处理
+- overflow:scroll/scroll-x/scroll-y
+
+###  联级与块级元素
+- 联级元素：默认不能享有指定的宽度 一定要享有设置display:block;设置为块级属性. 联级元素有哪些,a span select label button input
+- 块级元素: 独自占一行 可自定义宽度高.p,ul,li,div
+- 联级-块级元素：display:inline-block保持联级属性同时不想霸道挤掉兄弟标签
