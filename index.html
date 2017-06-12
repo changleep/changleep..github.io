@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 <title>野生程序员的成长之路</title>
-<link href="bootstrap.css" rel="stylesheet">
-<script src="jquery-1.11.1.min.js"></script><style type="text/css">
+<link href="indexresources/bootstrap.css" rel="stylesheet">
+<script src="indexresources/jquery-1.11.1.min.js"></script><style type="text/css">
 .container{padding-bottom:40px;}
 .jumbotron p{font-size:14px;}
 body{padding:7px;}
@@ -217,57 +217,6 @@ $(function(){
 		})();
 	</script>
 	</div>
-<script src="bootstrap.min.js"></script><script type="text/javascript">
-function loadUpdateLog(loadAll, context){
-	$.ajax({
-		url : '/it/site/log',
-		data : {
-			all : loadAll ? 1 : 0
-		},
-		beforeSend : function(){
-			context && $(context).text('加载中...');
-		},
-		success : function(result){
-			var $logContent = $('#updateLogContent');
-			$logContent.empty()
-				.html(result.data)
-				.find('a').attr('target', '_blank');
-			
-			if(loadAll){
-				$('#btnShowAllLogs').remove();
-				
-				var $articleItems = $logContent.find('li p'),
-					count = (function(){
-						var count = 0;
-						$articleItems.each(function(){
-							if(this.innerHTML.indexOf('发表了 ') != -1){
-								count++;
-							}
-						});
-						return count + 1;
-					})();
-					
-				$articleItems.each(function(){
-					if(this.innerHTML.indexOf('发表了 ') != -1){
-						this.innerHTML = (this.innerHTML.replace('发表了 ', '发表了第' + (--count) + '篇文章 '));
-					}
-				});
-			}
-			
-		},
-		error : function(xhr){
-			alert('加载失败：' + xhr.responseText);
-		}
-	});
-	
-}
-
-var disabledTip = '敬请期待~你也可以先自行上网搜索资料学习哦';
-$(function(){
-	loadUpdateLog(false);
-});
-
-var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1257037572'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1257037572%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
-</script>
-</body>
+<script src="indexresources/bootstrap.min.js"></script>
+ </body>
 </html>
