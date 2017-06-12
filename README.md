@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 Yii 2 Advanced Project Template
 ===============================
 
@@ -59,3 +60,7 @@ environments/            contains environment-based overrides
 
 This is about the installation of a Yii2-apidoc implementation, and did some of the style changes, I prefer this use of markdown in YII document implementation
 >>>>>>> ed33d7831993cbe0725deb4a91fa7ffec661bc59
+=======
+# changleep.github.io
+welcome to leepy87's website!
+>>>>>>> 783aaef0c8ce2bb6ecc7a184fd64909268a736d3
