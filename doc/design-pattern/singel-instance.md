@@ -31,9 +31,7 @@ class singelInstance{
 ``` bash
 	public static function getSingeInstance(){
    			if(self::$singeInstance != null){
-   				self::$singeInstance = new self();/*如果在内存中已经创建了这个实例则直接返回new self() 当前了自身再返回实例*/
-
-   			}
-   			return self::$singeInstance;
+   				self::$singeInstance = new self();如果在内存中已经创建了这个实例则直接返回new self() 当前了自身回实例   			}   			
+               return self::$singeInstance;
    		}
-
+```

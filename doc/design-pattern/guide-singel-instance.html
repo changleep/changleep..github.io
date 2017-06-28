@@ -9,15 +9,15 @@
 <link href="./assets/ccfa86b2/style.css" rel="stylesheet">
 <script src="./assets/43822d01/jquery.js"></script>
 <script src="./assets/60702fc5/js/bootstrap.js"></script>
-<script src="./assets/2901f1f1/jssearch.js"></script>    <title>leepy site home</title>
+<script src="./assets/2901f1f1/jssearch.js"></script>    <title>LeepyDoc - 单例模式 - leepy site home</title>
 </head>
 <body>
 
 <div class="wrap">
-    <nav id="w10" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w10-collapse"><span class="sr-only">Toggle navigation</span>
+    <nav id="w47" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w47-collapse"><span class="sr-only">Toggle navigation</span>
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
-<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">leepy site home</a></div><div id="w10-collapse" class="collapse navbar-collapse"><ul id="w11" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">leepy site home</a></div><div id="w47-collapse" class="collapse navbar-collapse"><ul id="w48" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
   <div class="form-group">
     <input id="searchbox" type="text" class="form-control" placeholder="Search">
   </div>
@@ -31,7 +31,14 @@
     
 <div class="row">
     <div class="col-md-2">
-                <div id="navigation" class="list-group"></div>    </div>
+                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-42" data-toggle="collapse" data-parent="#navigation">单例模式 <b class="caret"></b></a><div id="navigation-42" class="submenu panel-collapse collapse in"><a class="list-group-item active" href="./guide-singel-instance.html">LeepyDoc</a></div>
+<a class="list-group-item" href="#navigation-43" data-toggle="collapse" data-parent="#navigation">工厂模式 <b class="caret"></b></a><div id="navigation-43" class="submenu panel-collapse collapse"><a class="list-group-item" href="./guide-factory.html">LeepyDoc 工厂模式</a></div>
+<a class="list-group-item" href="#navigation-44" data-toggle="collapse" data-parent="#navigation">模式 <b class="caret"></b></a><div id="navigation-44" class="submenu panel-collapse collapse"><a class="list-group-item" href="./guide-observer.html">LeepyDoc �
+</a></div>
+<a class="list-group-item" href="#navigation-45" data-toggle="collapse" data-parent="#navigation">策略模式 <b class="caret"></b></a><div id="navigation-45" class="submenu panel-collapse collapse"><a class="list-group-item" href="./guide-strategy.html">LeepyDoc 策略</a></div>
+<a class="list-group-item" href="#navigation-46" data-toggle="collapse" data-parent="#navigation">模式 <b class="caret"></b></a><div id="navigation-46" class="submenu panel-collapse collapse"><a class="list-group-item" href="./guide-decorate.html">LeepyDoc �
+饰�
+</a></div></div>    </div>
     <div class="col-md-9 guide-content" role="main">
         <div class="toc"><ol><li><a href="#">单例模式</a></li></ol></div>
 <h2>单例模式 <span id=""></span><a href="#" class="hashlink">&para;</a></h2><h3>什么叫单例模式 <span id=""></span><a href="#" class="hashlink">&para;</a></h3><pre><code class="language- bash">  单例从字面上理解为单个实例，也就是说只负责创建类的单个实例.为什么要这么做，有什么好处呢?�
@@ -52,14 +59,10 @@
 </code></pre>
 <h4>3.写一个静态方法回调单个实例 <span id="3"></span><a href="#3" class="hashlink">&para;</a></h4><pre><code class="language- bash">	public static function getSingeInstance(){
    			if(self::$singeInstance != null){
-   				self::$singeInstance = new self();/*如果在�
-存中已经创建了这个实例则直接返回new self() 当前了自身再返回实例*/
-
-   			}
-   			return self::$singeInstance;
+   				self::$singeInstance = new self();如果在�
+存中已经创建了这个实例则直接返回new self() 当前了自身回实例   			}   			
+               return self::$singeInstance;
    		}
-
-
 </code></pre>
         <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
     </div>
@@ -69,7 +72,7 @@
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Wed, 28 Jun 2017 15:11:36 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Wed, 28 Jun 2017 15:25:04 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script type="text/javascript">jQuery(document).ready(function () {
