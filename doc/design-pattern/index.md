@@ -3,7 +3,7 @@
 
 观察模式
 -----
-*  [网页文件](files.md)
+*  [网页文件](singel-instance.md)
 *  [换行](html-break-line.md)
 
 CSS初步了解
