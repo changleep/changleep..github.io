@@ -40,8 +40,7 @@
 饰�
 模式</a></div></div>    </div>
     <div class="col-md-9 guide-content" role="main">
-        <div class="toc"><ol><li><a href="#">单例模式</a></li></ol></div>
-<h2>单例模式 <span id=""></span><a href="#" class="hashlink">&para;</a></h2><h3>什么叫单例模式 <span id=""></span><a href="#" class="hashlink">&para;</a></h3><pre><code class="language- bash">从字面上理解为单个实例，也就是说只负责创建类的单个实例.为什么要这么做，好处呢  �
+        <h3>什么叫单例模式 <span id=""></span><a href="#" class="hashlink">&para;</a></h3><pre><code class="language- bash">从字面上理解为单个实例，也就是说只负责创建类的单个实例.为什么要这么做，好处呢  �
 �实这要看实�
 应用场景了.最常见的一个实例就是数据库连接类.假如在这种�
 况下不使 用单例的话，每次访问数据库就创建一个实例.
@@ -52,7 +51,7 @@
    		private static $singeInstance = null;
    		....
 </code></pre>
-<h4>防止� <span id=""></span><a href="#" class="hashlink">&para;</a></h4><p>�隆和构造方法生成实例</p>
+<h4>2.防止� <span id=""></span><a href="#" class="hashlink">&para;</a></h4><p>�隆和构造方法生成实例</p>
 <pre><code class="language- bash">   	private function __construct(){}
    	private function __clone(){};防止实例被�
 �隆构造将这两个方法设置为私有的，且没有实现的方法
@@ -72,7 +71,7 @@
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Thu, 29 Jun 2017 00:46:32 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Thu, 29 Jun 2017 01:06:10 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script type="text/javascript">jQuery(document).ready(function () {

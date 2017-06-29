@@ -1,5 +1,3 @@
-## 单例模式
-
 ### 什么叫单例模式
 
 ``` bash
@@ -19,7 +17,7 @@ class singelInstance{
    		private static $singeInstance = null;
    		....
 ```
-####防止克隆和构造方法生成实例
+#### 2.防止克隆和构造方法生成实例
 
 ``` bash
    	private function __construct(){}
