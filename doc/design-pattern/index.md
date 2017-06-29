@@ -2,18 +2,16 @@
 ==================
 
 
-单例模式
+Singel
 --------
-*  [单例模式](singel-instance.md)
-*  [单例模式](css-selector-attr.md)
+*  [Singel-pattern](singel-instance.md)
 
-工厂模式
+Factory
 --------
-*  [工厂模式](factory.md)
-*  [工厂模式](factory.md)
+*  [Factory-工厂模式](factory.md)
+*  [Factory-工厂模式](factory.md)
 
-观察者模式
+Observer
 --------
-*  [观察者](observer.md)
-*  [观察者](observer.md)
+*  [Observe-观察者](observer.md)
 
