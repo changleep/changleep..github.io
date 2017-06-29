@@ -14,10 +14,10 @@
 <body>
 
 <div class="wrap">
-    <nav id="w54" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w54-collapse"><span class="sr-only">Toggle navigation</span>
+    <nav id="w40" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w40-collapse"><span class="sr-only">Toggle navigation</span>
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
-<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">leepy site home</a></div><div id="w54-collapse" class="collapse navbar-collapse"><ul id="w55" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">leepy site home</a></div><div id="w40-collapse" class="collapse navbar-collapse"><ul id="w41" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
   <div class="form-group">
     <input id="searchbox" type="text" class="form-control" placeholder="Search">
   </div>
@@ -31,37 +31,47 @@
     
 <div class="row">
     <div class="col-md-2">
-                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-49" data-toggle="collapse" data-parent="#navigation">单例模式 <b class="caret"></b></a><div id="navigation-49" class="submenu panel-collapse collapse in"><a class="list-group-item active" href="./guide-singel-instance.html">单例模式</a></div>
-<a class="list-group-item" href="#navigation-50" data-toggle="collapse" data-parent="#navigation">工厂模式 <b class="caret"></b></a><div id="navigation-50" class="submenu panel-collapse collapse"><a class="list-group-item" href="./guide-factory.html">工厂模式</a></div>
-<a class="list-group-item" href="#navigation-51" data-toggle="collapse" data-parent="#navigation">模式 <b class="caret"></b></a><div id="navigation-51" class="submenu panel-collapse collapse"><a class="list-group-item" href="./guide-observer.html">观察�
+                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-35" data-toggle="collapse" data-parent="#navigation">单例模式 <b class="caret"></b></a><div id="navigation-35" class="submenu panel-collapse collapse in"><a class="list-group-item active" href="./guide-singel-instance.html">单例模式</a></div>
+<a class="list-group-item" href="#navigation-36" data-toggle="collapse" data-parent="#navigation">工厂模式 <b class="caret"></b></a><div id="navigation-36" class="submenu panel-collapse collapse"><a class="list-group-item" href="./guide-factory.html">工厂模式</a></div>
+<a class="list-group-item" href="#navigation-37" data-toggle="collapse" data-parent="#navigation">模式 <b class="caret"></b></a><div id="navigation-37" class="submenu panel-collapse collapse"><a class="list-group-item" href="./guide-observer.html">观察�
 模式</a></div>
-<a class="list-group-item" href="#navigation-52" data-toggle="collapse" data-parent="#navigation">策略模式 <b class="caret"></b></a><div id="navigation-52" class="submenu panel-collapse collapse"><a class="list-group-item" href="./guide-strategy.html">策略模式</a></div>
-<a class="list-group-item" href="#navigation-53" data-toggle="collapse" data-parent="#navigation">模式 <b class="caret"></b></a><div id="navigation-53" class="submenu panel-collapse collapse"><a class="list-group-item" href="./guide-decorate.html">�
+<a class="list-group-item" href="#navigation-38" data-toggle="collapse" data-parent="#navigation">策略模式 <b class="caret"></b></a><div id="navigation-38" class="submenu panel-collapse collapse"><a class="list-group-item" href="./guide-strategy.html">策略模式</a></div>
+<a class="list-group-item" href="#navigation-39" data-toggle="collapse" data-parent="#navigation">模式 <b class="caret"></b></a><div id="navigation-39" class="submenu panel-collapse collapse"><a class="list-group-item" href="./guide-decorate.html">�
 饰�
 模式</a></div></div>    </div>
     <div class="col-md-9 guide-content" role="main">
-        <h3>什么叫单例模式 <span id=""></span><a href="#" class="hashlink">&para;</a></h3><pre><code class="language- bash">从字面上理解为单个实例，也就是说只负责创建类的单个实例.为什么要这么做，好处呢  �
-�实这要看实�
-应用场景了.最常见的一个实例就是数据库连接类.假如在这种�
-况下不使 用单例的话，每次访问数据库就创建一个实例.
+        <div class="toc"><ol><li><a href="#">单例模式</a></li></ol></div>
+<h2>单例模式 <span id=""></span><a href="#" class="hashlink">&para;</a></h2><h3>1.什么叫单例? <span id="1"></span><a href="#1" class="hashlink">&para;</a></h3><p>单例从字面上理解为单个实例，也就是说只负责创建类的单个实例.为什么要这么做，有什么好处呢?�
+�实这要看实�
+应用场景了.最常见的一个实例就是数据库连接类.假如在这种�
+况下不使用单例的话，每次访问数据库就创建一个实例.</p>
+<h3>2.使用单例的优势? <span id="2"></span><a href="#2" class="hashlink">&para;</a></h3><p>前面�
+�讲了单例就是只实例一次。那这样的设计模式有什么优势呢，这 �
+�实是适合某些特定的类.就说客户端同服务端交互，只要设计数据读写，这时候离不开数据库的访问.那么每个用户访问一次都得创建一次数据库连接，�
+�实他们只要访问同一台db服务器，创建这些实例的过程都是一样的，这时候就考虑使用单例子，减少了实例的创建.</p>
+<h3>3.� <span id=""></span><a href="#" class="hashlink">&para;</a></h3><p>�体的实现</p>
+<pre><code class="hljs ">  好了废话这么多也许你早就不耐烦了。那么直接上代码讲解单例子的实现步骤吧.
 </code></pre>
-<p>More info: <a href="https://leeph86.me/doc/pattern-design/">Writing</a></p>
-<h3>如何实现 <span id=""></span><a href="#" class="hashlink">&para;</a></h3><h4>1.设置静态私有变量来保存单个实例 <span id="1"></span><a href="#1" class="hashlink">&para;</a></h4><pre><code class="language- bash">class singelInstance{
+<pre><code class="language-class singelInstance{">  //1.定义静态私有属性$singeInstance保存实例,构造方法和�
+�隆方法设置为没有实现的，防止重复实例化.
+        private static $singeInstance = null;
+        private function __construct(){
+        }
+        private function __clone(){
+        }
 
-   		private static $singeInstance = null;
-   		....
-</code></pre>
-<h4>2.防止� <span id=""></span><a href="#" class="hashlink">&para;</a></h4><p>�隆和构造方法生成实例</p>
-<pre><code class="language- bash">   	private function __construct(){}
-   	private function __clone(){};防止实例被�
-�隆构造将这两个方法设置为私有的，且没有实现的方法
-</code></pre>
-<h4>3.写一个静态方法回调单个实例 <span id="3"></span><a href="#3" class="hashlink">&para;</a></h4><pre><code class="language- bash">	public static function getSingeInstance(){
-   			if(self::$singeInstance != null){
-   				self::$singeInstance = new self();如果在�
-存 中已经创建了这个实例则直接返回new self()当前了自身回实例   			}   			
-               return self::$singeInstance;
-   		}
+        //2.实现单例方法,判断当前实例有有无创建，有则直接从�
+存中直接获取当前实例，没有则new self()来创建.
+        public static function getSingeInstance(){
+            if(self::$singeInstance != null){
+                self::$singeInstance = new self();
+
+
+            }
+            return self::$singeInstance;
+        }
+   }```
+
 </code></pre>
         <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
     </div>
@@ -71,7 +81,7 @@
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Thu, 29 Jun 2017 01:23:14 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Thu, 29 Jun 2017 01:54:10 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script type="text/javascript">jQuery(document).ready(function () {
