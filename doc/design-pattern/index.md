@@ -22,4 +22,3 @@
 -----
 *  [LeepyDoc 装饰者](decorate.md)
 
-
