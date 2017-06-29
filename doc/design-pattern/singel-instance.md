@@ -11,3 +11,24 @@
 
 ###3.具体的实现
 好了废话这么多也许你早就不耐烦了。那么直接上代码讲解单例子的实现步骤吧.
+
+```
+<?php
+class singelInstance{
+        private static $singeInstance = null;
+        private function __construct(){
+        }
+        private function __clone(){
+        }
+
+        public static function getSingeInstance(){
+            if(self::$singeInstance != null){
+                self::$singeInstance = new self();
+
+
+            }
+            return self::$singeInstance;
+        }
+     }
+<?php>
+```
