@@ -3,22 +3,17 @@
 
 
 单例模式
------
+--------
 *  [单例模式](singel-instance.md)
+*  [单例模式](css-selector-attr.md)
 
 工厂模式
 --------
 *  [工厂模式](factory.md)
+*  [工厂模式](factory.md)
 
 观察者模式
----------
-*  [观察者模式](observer.md)
-
-策略模式
 --------
-*  [策略模式](strategy.md)
-
-装饰者模式
---------
-*  [装饰者模式](decorate.md)
+*  [观察者](observer.md)
+*  [观察者](observer.md)
 
