@@ -36,11 +36,13 @@
 <a class="list-group-item" href="./guide-observer.html">观察模式</a></div></div>    </div>
     <div class="col-md-9 guide-content" role="main">
         <h3>1.什么叫工厂模式？ <span id="1"></span><a href="#1" class="hashlink">&para;</a></h3><p>定义一个类创建一个专门生成某个接口不同实现的complete的public方法.</p>
-<h3>2.使用工厂模式的好处? <span id="2"></span><a href="#2" class="hashlink">&para;</a></h3><p>隐藏了创建过程的复杂度，不需要直接new类就可以获取想要类的实例。
-<em>隐藏detail类名，很多类隐藏得很深的，而且可能会在后续版本换掉
-</em>aviod you辛苦的准备构造方法的参数
-<em>这个工厂类可以被config成Other Class
-</em>这个工厂对象可以被传递</p>
+<h3>2.使用工厂模式的好处? <span id="2"></span><a href="#2" class="hashlink">&para;</a></h3><p>隐藏了创建过程的复杂度，不需要直接new类就可以获取想要类的实例。</p>
+<ul>
+<li>隐藏detail类名，很多类隐藏得很深的，而且可能会在后续版本换掉</li>
+<li>aviod you辛苦的准备构造方法的参数</li>
+<li>这个工厂类可以被config成Other Class</li>
+<li>这个工厂对象可以被传递</li>
+</ul>
 <p>最后来句重要的
 new XXX,actually也是一种硬编码！！！</p>
 <h3>3.Specific 实现 <span id="3specific"></span><a href="#3specific" class="hashlink">&para;</a></h3><p>好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个实例吧.
@@ -111,7 +113,7 @@ new XXX,actually也是一种硬编码！！！</p>
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Sat, 01 Jul 2017 11:01:34 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Sat, 01 Jul 2017 11:15:45 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script type="text/javascript">jQuery(document).ready(function () {
