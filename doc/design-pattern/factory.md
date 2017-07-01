@@ -12,75 +12,74 @@
 new XXX,actually也是一种硬编码！！！
 
 ###3.Specific 实现
-好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个实例吧.
-*创建一个接口
+     好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个实例吧.
+创建一个接口
 ```
-interface Shape{
-    public function getArea();
-    public function getCircumference();
-}
-```
-*Rectangle类实现接口
-```
-class Rectangle implements shape{
-    private $width;
-    private $height;
-    public function __construct($width, $height){
-        $this->width = $width;
-        $this->height = $height;
+    interface Shape{
+        public function getArea();
+        public function getCircumference();
     }
-    public function getArea(){
-        return $this->width*$this->height;
-    }
+```
+Rectangle类实现接口
+```
+    class Rectangle implements shape{
+        private $width;
+        private $height;
+        public function __construct($width, $height){
+            $this->width = $width;
+            $this->height = $height;
+        }
+        public function getArea(){
+            return $this->width*$this->height;
+        } 
 
-    public function getCircumference(){
-        return 2*($this->width + $this->height);
+        public function getCircumference(){
+            return 2*($this->width + $this->height);
+        }
     }
-}
 ```
-*Circle类实现接口
+Circle类实现接口
 ```
-class Circle implements shape{
- 
-    private $radius=0;
-    public function __construct($radius){
-        $this->radius = $radius;
-    }
-    public function getArea(){
-        return M_PI*pow($this->radius, 2);
-    }
+    class Circle implements shape{
+        private $radius=0;
+        public function __construct($radius){
+            $this->radius = $radius;
+        }
+        public function getArea(){
+            return M_PI*pow($this->radius, 2);
+        }
 
-    public function getCircumference(){
-        return 2*M_PI*$this->radius;
-    }
-}
+        public function getCircumference(){
+            return 2*M_PI*$this->radius;
+        }
+     }
 ```
 *FactoryShape工厂类生产实例
 ```
-class FactoryShape{
+    class FactoryShape{
 
-    public static function create(){
-        switch(func_num_args()){
-            case 1:
-                return new Circle(func_get_arg(0));
-            case 2:
-                return new Rectangle(func_get_arg(0), func_get_arg(1));
+        public static function create(){
+            switch(func_num_args()){
+                case 1:
+                    return new Circle(func_get_arg(0));
+                case 2:
+                    return new Rectangle(func_get_arg(0), func_get_arg(1));
 
-            default:
-              # code....
-              break;
-        }
+             default:
+                 # code....
+                 break;
+             }
          
+        }
     }
-}
 ```
 *外部类调用
 ```
-class otherClass{ 
-    $rect = FactoryShape::create(5, 5);/*只需要通过参数传递到工厂方法就可以获取想要的实例，不需要直接new类本身，减去繁琐的构造参数，减少系统的耦合度，方便Other classs using，也方便接口的扩展*/
-    $area = $rect->getArea();
-    $circumference = $rect->getCircumference();
-    echo "面积是：".$area;
-    echo "周长是：".$circumference;
-}
+    class otherClass{ 
+        $rect = FactoryShape::create(5, 5);/*只需要通过参数传递到工厂方法就可以获取想要的实例，不需要直接new类本身，减去繁琐的构造参数，减少系统的耦合度，方便Other classs using，也方便接口的扩展*/
+        $area = $rect->getArea();
+        $circumference = $rect->getCircumference();
+        echo "面积是：".$area;
+        echo "周长是：".$circumference;
+    }
 ```
