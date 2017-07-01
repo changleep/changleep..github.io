@@ -13,12 +13,16 @@ new XXX,actually也是一种硬编码！！！
 
 ###3.Specific 实现
 好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个实例吧.
+*创建一个接口
 ```
 interface Shape{
     public function getArea();
     public function getCircumference();
-  }
-  class Rectangle implements shape{
+}
+```
+*Rectangle类实现接口
+```
+class Rectangle implements shape{
     private $width;
     private $height;
     public function __construct($width, $height){
@@ -32,21 +36,30 @@ interface Shape{
     public function getCircumference(){
         return 2*($this->width + $this->height);
     }
-    }
-   class Circle implements shape{ 
-      private $radius=0;
-      public function __construct($radius){
+}
+```
+*Circle类实现接口
+```
+class Circle implements shape{
+ 
+    private $radius=0;
+    public function __construct($radius){
         $this->radius = $radius;
-      }
-      public function getArea(){
+    }
+    public function getArea(){
         return M_PI*pow($this->radius, 2);
-      }
-      public function getCircumference(){
+    }
+
+    public function getCircumference(){
         return 2*M_PI*$this->radius;
-      }
-   }
-  class FactoryShape{
-      public static function create(){
+    }
+}
+```
+*FactoryShape工厂类生产实例
+```
+class FactoryShape{
+
+    public static function create(){
         switch(func_num_args()){
             case 1:
                 return new Circle(func_get_arg(0));
@@ -56,15 +69,17 @@ interface Shape{
             default:
               # code....
               break;
-         }
+        }
          
-      }
-   }
-   class otherClass{
-       $rect = FactoryShape::create(5, 5);/*只需要通过参数传递到工厂方法就可以获取想要的实例，不需要直接new类本身，减去繁琐的构造参数，减少系统的耦合度，方便Other Package调用，也方便接口的扩展*/
-       $area = $rect->getArea();
-       $circumference = $rect->getCircumference();
-       echo "面积是：".$area;
-       echo "周长是：".$circumference;
     }
+}
+```
+*外部类调用
+``` 
+$rect = FactoryShape::create(5, 5);/*只需要通过参数传递到工厂方法就可以获取想要的实例，不需要直接new类本身，减去繁琐的构造参数，减少系统的耦合度，方便Other classs using，也方便接口的扩展*/
+$area = $rect->getArea();
+$circumference = $rect->getCircumference();
+echo "面积是：".$area;
+
+echo "周长是：".$circumference;
 ```
