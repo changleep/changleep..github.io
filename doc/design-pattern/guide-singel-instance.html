@@ -14,10 +14,10 @@
 <body>
 
 <div class="wrap">
-    <nav id="w13" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w13-collapse"><span class="sr-only">Toggle navigation</span>
+    <nav id="w16" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w16-collapse"><span class="sr-only">Toggle navigation</span>
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
-<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">leepy site home</a></div><div id="w13-collapse" class="collapse navbar-collapse"><ul id="w14" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">leepy site home</a></div><div id="w16-collapse" class="collapse navbar-collapse"><ul id="w17" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
   <div class="form-group">
     <input id="searchbox" type="text" class="form-control" placeholder="Search">
   </div>
@@ -31,9 +31,10 @@
     
 <div class="row">
     <div class="col-md-2">
-                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-12" data-toggle="collapse" data-parent="#navigation">设计模式 <b class="caret"></b></a><div id="navigation-12" class="submenu panel-collapse collapse in"><a class="list-group-item active" href="./guide-singel-instance.html">单例模式</a>
+                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-15" data-toggle="collapse" data-parent="#navigation">设计模式 <b class="caret"></b></a><div id="navigation-15" class="submenu panel-collapse collapse in"><a class="list-group-item active" href="./guide-singel-instance.html">单例模式</a>
 <a class="list-group-item" href="./guide-factory.html">工厂模式</a>
-<a class="list-group-item" href="./guide-observer.html">观察Owner模式</a></div></div>    </div>
+<a class="list-group-item" href="./guide-observer.html">观察Owner模式</a>
+<a class="list-group-item" href="./guide-strategy.html">策略模式</a></div></div>    </div>
     <div class="col-md-9 guide-content" role="main">
         <h3>1.什么叫单例? <span id="1"></span><a href="#1" class="hashlink">&para;</a></h3><p>单例从字面上理解为单个实例，也就是说只负责创建类的单个实例.为什么要这么做，有什么好处呢, 这要看actually场景了.最常见的一个实例就是数据库连接类.假如在这种case下不使用单例的话，每次访问数据库就创建一个实例.</p>
 <h3>2.使用单例的优势? <span id="2"></span><a href="#2" class="hashlink">&para;</a></h3><p>前面讲了单例就是只实例一次。那这样的设计模式有什么优势呢，适合某些特定的类.就说客户端同服务端交互，只要设计数据读写，这时候离不开数据库的访问.那么每个用户访问一次都得创建一次数据库连接，实他们只要访问同一台db服务器，创建这些实例的过程都是一样的，这时候就考虑使用单例子，减少了实例的创建.</p>
@@ -63,7 +64,7 @@
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Sat, 01 Jul 2017 14:36:15 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Sat, 01 Jul 2017 15:04:41 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script type="text/javascript">jQuery(document).ready(function () {

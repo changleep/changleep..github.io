@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/60702fc5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/9295abe6/solarized_light.css" rel="stylesheet">
+<link href="./assets/ccfa86b2/style.css" rel="stylesheet">
+<script src="./assets/43822d01/jquery.js"></script>
+<script src="./assets/60702fc5/js/bootstrap.js"></script>
+<script src="./assets/1bf1209e/jssearch.js"></script>    <title>策略模式 - 设计模式 - leepy site home</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w1" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w1-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">leepy site home</a></div><div id="w1-collapse" class="collapse navbar-collapse"><ul id="w2" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-0" data-toggle="collapse" data-parent="#navigation">设计模式 <b class="caret"></b></a><div id="navigation-0" class="submenu panel-collapse collapse in"><a class="list-group-item" href="./guide-singel-instance.html">单例模式</a>
+<a class="list-group-item" href="./guide-factory.html">工厂模式</a>
+<a class="list-group-item" href="./guide-observer.html">观察Owner模式</a>
+<a class="list-group-item active" href="./guide-strategy.html">策略模式</a></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h3>1.什么叫策略模式？ <span id="1"></span><a href="#1" class="hashlink">&para;</a></h3><p>抽象接口定义的方法，实现某一个功能有多种算法或�
+策略.这些实现由不同的子类complete.根据需求由调用不同的策略。交由策略类来处理，根据参数获取不同的策略对象instance.</p>
+<h3>2.使用工厂模式的好处? <span id="2"></span><a href="#2" class="hashlink">&para;</a></h3><p>隐藏了创建过程的复杂度，不需要直接new类就可以获取想要类的实例。
+1.隐藏�
+�体类名，很多类隐藏得很深的，而且可能会在后续版本换掉，子类可以修改，可以添加�
+�他子类，隐藏细节.
+2.避�
+�你辛苦的准备构造方法的参数
+3.这个策略类可以被�
+�置成�
+�它类.</p>
+<p>最后来句重要的
+new XXX�
+�实也是一种硬编码！！！</p>
+<h3>3.� <span id=""></span><a href="#" class="hashlink">&para;</a></h3><p>�体的实现
+好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个demo吧.
+首�
+�创建一个接口
+<code>`</code></p>
+<pre><code class="hljs php">    <span class="hljs-comment">/**抽象策略角色 
+    * Interface RotateItem 
+    */</span>  
+
+    <span class="hljs-class"><span class="hljs-keyword">interface</span>  <span class="hljs-title">Product_strategy</span></span>{
+      <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">productType</span><span class="hljs-params">()</span></span>;
+    }
+</code></pre>
+<pre><code class="hljs php">    <span class="hljs-comment">/**Detail策略角色——X产品 
+    * Class XItem 
+    */</span>  
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">XItem</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Product_strategy</span>  
+    </span>{  
+</code></pre>
+<pre><code class="hljs php">        <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">productType</span><span class="hljs-params">()</span>  
+        </span>{  
+          <span class="hljs-keyword">echo</span> <span class="hljs-string">"我是X产品，我非惯性旋转了。&lt;br/&gt;"</span>;  
+        }  
+    }  
+
+    <span class="hljs-comment">/**Detail策略角色——Y产品 
+    * Class YItem 
+    */</span>  
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">YItem</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Product_strategy</span>  
+    </span>{  
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">productType</span><span class="hljs-params">()</span>  
+        </span>{  
+          <span class="hljs-keyword">echo</span> <span class="hljs-string">"我是Y产品，我&lt;span style='color: #ff0000;'&gt;不能&lt;/span&gt;惯性旋转。&lt;br/&gt;"</span>;  
+        }  
+
+    }  
+
+    <span class="hljs-comment">/**Detail策略角色——XY产品 
+    * Class XYItem 
+    */</span>  
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">XYItem</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Product_strategy</span>  
+    </span>{  
+        <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">productType</span><span class="hljs-params">()</span>  
+        </span>{  
+          <span class="hljs-keyword">echo</span> <span class="hljs-string">"我是XY产品，我惯性旋转。&lt;br/&gt;"</span>;  
+        }  
+    }  
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">contextStrategy</span>  
+    </span>{  
+        <span class="hljs-keyword">private</span> <span class="hljs-variable">$item</span>;  
+
+        <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getItem</span><span class="hljs-params">(<span class="hljs-variable">$item_name</span>)</span>  
+        </span>{  
+          <span class="hljs-keyword">try</span>  
+          {  
+            <span class="hljs-variable">$class</span>=<span class="hljs-keyword">new</span> ReflectionClass(<span class="hljs-variable">$item_name</span>);  
+            <span class="hljs-variable">$this</span>-&gt;item=<span class="hljs-variable">$class</span>-&gt;newInstance();  
+          }  
+          <span class="hljs-keyword">catch</span>(ReflectionException <span class="hljs-variable">$e</span>)  
+         {  
+           <span class="hljs-variable">$this</span>-&gt;item=<span class="hljs-string">""</span>;  
+         }  
+    }  
+
+        <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">productType</span><span class="hljs-params">()</span></span>{
+            <span class="hljs-variable">$this</span>-&gt;item-&gt;productType();
+        }
+    }  
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">otherClass</span></span>{
+        <span class="hljs-variable">$strategy</span> = <span class="hljs-keyword">new</span> contextStrategy();
+        <span class="hljs-variable">$strategy</span>-&gt;getItem(<span class="hljs-string">'XItem'</span>);
+        <span class="hljs-variable">$strategy</span>-&gt;productType();
+
+        <span class="hljs-variable">$strategy</span>-&gt;getItem(<span class="hljs-string">'YItem'</span>);
+        <span class="hljs-variable">$strategy</span>-&gt;productType();
+
+        <span class="hljs-variable">$strategy</span>-&gt;getItem(<span class="hljs-string">'XYItem'</span>);
+        <span class="hljs-variable">$strategy</span>-&gt;productType();
+    }
+</code></pre>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Sat, 01 Jul 2017 15:04:41 +0000</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script type="text/javascript">jQuery(document).ready(function () {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>
