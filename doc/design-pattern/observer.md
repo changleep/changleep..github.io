@@ -1,5 +1,5 @@
 ###定义i
-  观察owner设计模式：观察owner(observer)和被观察owner(subject),或说public和subscrible的一种设计模式.被观察owner负责将观察owner保存到容器，或者删除, 被观察owner发生改变可以通知他的所有观察owner.这是一种一对多的设计模式.
+  观察owner设计模式：观察owner(observer)和被观察owner(subject),或说public和subscrible的一种设计模式.被观察owner负责将观察owner保存到容器，或删除, 被观察owner发生改变可以通知他的所有观察owner.这是一种一对多的设计模式.
 
 ###实现Demo
 看看下面这个小demo吧
@@ -45,4 +45,4 @@
       $subject->notify();
     }
 ```
-end, thank you!
+   end, thank you!
