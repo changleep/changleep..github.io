@@ -4,7 +4,7 @@
 ###实现Demo
 看看下面这个小demo吧
 ```
-   class MySubject implements SplSubject{
+    class MySubject implements SplSubject{
         private $_observers=[];
         private $_name;
         public function __construct($name) {
@@ -43,6 +43,5 @@
       $subject->attach($observer1);
       $subject->attach($observer2);
       $subject->notify();
-    }
-```
-   end, thank you!
+    }```
+end, thank you!

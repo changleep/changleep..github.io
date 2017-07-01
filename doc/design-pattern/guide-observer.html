@@ -37,9 +37,9 @@
     <div class="col-md-9 guide-content" role="main">
         <h3>定义i <span id="i"></span><a href="#i" class="hashlink">&para;</a></h3><p>  观察owner设计模式：观察owner(observer)和被观察owner(subject),或说public和subscrible的一种设计模式.被观察owner负责将观察owner保存到容器，或删除, 被观察owner发生改变可以通知他的所有观察owner.这是一种一对多的设计模式.</p>
 <h3>实现Demo <span id="demo"></span><a href="#demo" class="hashlink">&para;</a></h3><p>看看下面这个小demo吧
-<code>`</code>
-   class MySubject implements SplSubject{</p>
-<pre><code class="hljs php">    <span class="hljs-keyword">private</span> <span class="hljs-variable">$_observers</span>=[];
+<code>`</code></p>
+<pre><code class="hljs php"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySubject</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">SplSubject</span></span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-variable">$_observers</span>=[];
     <span class="hljs-keyword">private</span> <span class="hljs-variable">$_name</span>;
     <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(<span class="hljs-variable">$name</span>)</span> </span>{
         <span class="hljs-variable">$this</span>-&gt;_observers = <span class="hljs-keyword">new</span> SplObjectStorage();
@@ -77,11 +77,9 @@
   <span class="hljs-variable">$subject</span>-&gt;attach(<span class="hljs-variable">$observer1</span>);
   <span class="hljs-variable">$subject</span>-&gt;attach(<span class="hljs-variable">$observer2</span>);
   <span class="hljs-variable">$subject</span>-&gt;notify();
-}
+}```
 </code></pre>
-<pre><code class="hljs sql">   <span class="hljs-operator"><span class="hljs-keyword">end</span>, thank you!
-
-</span></code></pre>
+<p>end, thank you!</p>
         <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
     </div>
 </div>
@@ -90,7 +88,7 @@
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Sat, 01 Jul 2017 14:32:49 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Sat, 01 Jul 2017 14:36:15 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script type="text/javascript">jQuery(document).ready(function () {
