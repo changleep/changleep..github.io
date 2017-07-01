@@ -35,32 +35,24 @@
 <a class="list-group-item active" href="./guide-factory.html">工厂模式</a>
 <a class="list-group-item" href="./guide-observer.html">观察模式</a></div></div>    </div>
     <div class="col-md-9 guide-content" role="main">
-        <h3>1.什么叫工厂模式？ <span id="1"></span><a href="#1" class="hashlink">&para;</a></h3><p>定义一个类创建一个专门生成某个接口不同实现的实例的�
-��
-�方法（根据�
-�置或�
-参数）. </p>
+        <h3>1.什么叫工厂模式？ <span id="1"></span><a href="#1" class="hashlink">&para;</a></h3><p>定义一个类创建一个专门生成某个接口不同实现的complete的public方法.</p>
 <h3>2.使用工厂模式的好处? <span id="2"></span><a href="#2" class="hashlink">&para;</a></h3><p>隐藏了创建过程的复杂度，不需要直接new类就可以获取想要类的实例。
-1.隐藏�
-�体类名，很多类隐藏得很深的，而且可能会在后续版本换掉
+1.隐藏detail类名，很多类隐藏得很深的，而且可能会在后续版本换掉
 2.避�
-�你辛苦的准备构造方法的参数
-3.这个工厂类可以被�
-�置成�
+�you辛苦的准备构造方法的参数
+3.这个工厂类可以被config成�
 �它类
 4.这个工厂对象可以被传递</p>
 <p>最后来句重要的
-new XXX�
-�实也是一种硬编码！！！</p>
-<h3>3.� <span id=""></span><a href="#" class="hashlink">&para;</a></h3><p>�体的实现
-好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个实例吧.
+new XXX,actually也是一种硬编码！！！</p>
+<h3>3.Specific 实现 <span id="3specific"></span><a href="#3specific" class="hashlink">&para;</a></h3><p>好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个实例吧.
 <code>`</code>
 interface Shape{</p>
 <pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>;
 <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCircumference</span><span class="hljs-params">()</span></span>;
 </code></pre>
-<p>}</p>
-<p>class Rectangle implements shape{</p>
+<p>}
+class Rectangle implements shape{</p>
 <pre><code class="hljs php"><span class="hljs-keyword">private</span> <span class="hljs-variable">$width</span>;
 <span class="hljs-keyword">private</span> <span class="hljs-variable">$height</span>;
 <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(<span class="hljs-variable">$width</span>, <span class="hljs-variable">$height</span>)</span></span>{
@@ -75,8 +67,8 @@ interface Shape{</p>
     <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>*(<span class="hljs-variable">$this</span>-&gt;width + <span class="hljs-variable">$this</span>-&gt;height);
 }
 </code></pre>
-<p>}</p>
-<p>class Circle implements shape{</p>
+<p>}
+class Circle implements shape{ </p>
 <pre><code class="hljs php"><span class="hljs-keyword">private</span> <span class="hljs-variable">$radius</span>=<span class="hljs-number">0</span>;
 <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(<span class="hljs-variable">$radius</span>)</span></span>{
     <span class="hljs-variable">$this</span>-&gt;radius = <span class="hljs-variable">$radius</span>;
@@ -89,8 +81,8 @@ interface Shape{</p>
     <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>*M_PI*<span class="hljs-variable">$this</span>-&gt;radius;
 }
 </code></pre>
-<p>}</p>
-<p>class FactoryShape{</p>
+<p>}
+class FactoryShape{</p>
 <pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">create</span><span class="hljs-params">()</span></span>{
     <span class="hljs-keyword">switch</span>(func_num_args()){
         <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
@@ -105,14 +97,14 @@ interface Shape{</p>
      
 }
 </code></pre>
-<p>}</p>
-<p>$rect = FactoryShape::create(5, 5);/<em>只需要通过参数传递到工厂方法就可以获取想要的实例，不需要直接new类本身，减去繁琐的构造参数，减少系统的耦合度，方便�
-�他�
-调用，也方便接口的扩展</em>/
-$area = $rect-&gt;getArea();
-$circumference = $rect-&gt;getCircumference();
-echo "面积是：".$area;</p>
-<p>echo "周长是：".$circumference;
+<p>}
+class otherClass{
+   $rect = FactoryShape::create(5, 5);/<em>只需要通过参数传递到工厂方法就可以获取想要的实例，不需要直接new类本身，减去繁琐的构造参数，减少系统的耦合度，方便Other Package调用，也方便接口的扩展</em>/
+   $area = $rect-&gt;getArea();
+   $circumference = $rect-&gt;getCircumference();
+   echo "面积是：".$area;
+   echo "周长是：".$circumference;
+}
 <code>`</code></p>
         <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
     </div>
@@ -122,7 +114,7 @@ echo "面积是：".$area;</p>
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Sat, 01 Jul 2017 07:55:01 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Sat, 01 Jul 2017 08:16:24 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script type="text/javascript">jQuery(document).ready(function () {
