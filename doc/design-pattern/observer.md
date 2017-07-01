@@ -1,11 +1,47 @@
-##Observer模式
+###定义
+  观察owner设计模式：观察owner(observer)和被观察owner(subject),或者说发布者和订阅者直接的一种设计模式.被观察者负责将观察者保存到容器，或者删除, 被观察owner发生改变可以通知他的所有观察owner.这是一种一对多的设计模式.
 
-###1.什么叫Observer模式?
-单例从字面上理解为单个实例，也就是说只负责创建类的单个实例.为什么要这么做，有什么好处呢, 这要看实际应用场景了.最常见的一个实例就是数据库连接类.假如在这种case下不使用单例的话，每次访问数据库就创建一个实例.
+###实现Demo
 
-###2.使用Observer模式的优势?
-前面讲了单例就是只实例一次。那这样的设计模式有什么优势呢，适合某些特定的类.就说客户端同服务端交互，只要设计数据读写，这时候离不开数据库的访问.那么每个用户访问
-一次都得创建一次数据库连接，实他们只要访问同一台db服务器，创建这些实例的过程都>是一样的，这时候就考虑使用单例子，减少了实例的创建.
-
-###3.实现Demo
-好了废话这么多也许你早就不耐烦了.那么直接上代码讲解单例子的实现步骤.
+```
+    class MySubject implements SplSubject{
+        private $_observers=[];
+        //private $_name;
+        public function __construct($name) {
+            $this->_observers = new SplObjectStorage();
+            //$this->_name = $name;
+        }
+        public function attach(SplObserver $observer) {
+        	//$this->_observers[] = $observer;
+            $this->_observers->attach($observer);
+        }
+        public function detach(SplObserver $observer) {
+            $this->_observers->detach($observer);
+        }
+        public function notify() {
+            foreach ($this->_observers as $observer) {
+                $observer->update($this);
+            }
+        }
+        public function getName() {
+            return $this->_name;
+        }
+    }
+    class MyObserver1 implements SplObserver {
+        public function update(SplSubject $subject) {
+            echo  '观察owner1';
+        }
+    }
+    class MyObserver2 implements SplObserver {
+        public function update(SplSubject $subject) {
+            echo  '观察owner2';
+        }
+    }
+    $observer1 = new MyObserver1();/*观察1实例*/
+    $observer2 = new MyObserver2();/*观察2实例*/
+    $subject = new MySubject("test");/*被观察者实例，已经实例化发生改变*/
+    $subject->attach($observer1);/*将观察对象1添加到被观察者容器中*/
+    $subject->attach($observer2);/*将观察对象2添加到被观察者容器中*/
+    $subject->notify(); /*通知所有的观察owner*/
+```
+end, thank you!
