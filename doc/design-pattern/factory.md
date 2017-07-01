@@ -19,18 +19,13 @@ new XXX,actually也是一种硬编码！！！
         public function getArea();
         public function getCircumference();
     }
-```
-
-Rectangle类实现接口
-```
-    class Rectangle implements shape{
+    class Rectangle implements shape{/*Rectangle类实现接口*/
         private $width;
         private $height;
         public function __construct($width, $height){
             $this->width = $width;
             $this->height = $height;
-        }
-        public function getArea(){
+        }        public function getArea(){
             return $this->width*$this->height;
         } 
 
@@ -38,11 +33,7 @@ Rectangle类实现接口
             return 2*($this->width + $this->height);
         }
     }
-```
-
-Circle类实现接口
-```
-    class Circle implements shape{
+    class Circle implements shape{/*Circle类实现接口*/
         private $radius=0;
         public function __construct($radius){
             $this->radius = $radius;
@@ -55,11 +46,7 @@ Circle类实现接口
             return 2*M_PI*$this->radius;
         }
      }
-```
-
-FactoryShape工厂类生产实例
-```
-    class FactoryShape{
+    class FactoryShape{/*FactoryShape工厂类生产实例*/
 
         public static function create(){
             switch(func_num_args()){
@@ -75,11 +62,7 @@ FactoryShape工厂类生产实例
          
         }
     }
-```
-
-外部类调用
-```
-    class otherClass{ 
+    class otherClass{/*外部类调用*/ 
         $rect = FactoryShape::create(5, 5);/*只需要通过参数传递到工厂方法就可以获取想要的实例，不需要直接new类本身，减去繁琐的构造参数，减少系统的耦合度，方便Other classs using，也方便接口的扩展*/
         $area = $rect->getArea();
         $circumference = $rect->getCircumference();
