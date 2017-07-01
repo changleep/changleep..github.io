@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/60702fc5/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/9295abe6/solarized_light.css" rel="stylesheet">
+<link href="./assets/ccfa86b2/style.css" rel="stylesheet">
+<script src="./assets/43822d01/jquery.js"></script>
+<script src="./assets/60702fc5/js/bootstrap.js"></script>
+<script src="./assets/1bf1209e/jssearch.js"></script>    <title>观察Owner模式 - 设计模式 - leepy site home</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w4" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w4-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">leepy site home</a></div><div id="w4-collapse" class="collapse navbar-collapse"><ul id="w5" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-2">
+                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-3" data-toggle="collapse" data-parent="#navigation">设计模式 <b class="caret"></b></a><div id="navigation-3" class="submenu panel-collapse collapse in"><a class="list-group-item" href="./guide-singel-instance.html">单例模式</a>
+<a class="list-group-item" href="./guide-factory.html">工厂模式</a>
+<a class="list-group-item active" href="./guide-observer.html">观察Owner模式</a></div></div>    </div>
+    <div class="col-md-9 guide-content" role="main">
+        <h3>定义 <span id=""></span><a href="#" class="hashlink">&para;</a></h3><p>  观察owner设计模式：观察owner(observer)和被观察owner(subject),或�
+说发布�
+和订�
+�
+直接的一种设计模式.被观察�
+负责将观察�
+保存到容器，或�
+删除, 被观察owner发生改变可以通知他的所有观察owner.这是一种一对多的设计模式.</p>
+<h3>实现Demo <span id="demo"></span><a href="#demo" class="hashlink">&para;</a></h3><p>看看下面这个小demo吧
+<code>`</code>
+ class MySubject implements SplSubject{</p>
+<pre><code class="hljs php">    <span class="hljs-keyword">private</span> <span class="hljs-variable">$_observers</span>=[];
+    <span class="hljs-keyword">private</span> <span class="hljs-variable">$_name</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(<span class="hljs-variable">$name</span>)</span> </span>{
+        <span class="hljs-variable">$this</span>-&gt;_observers = <span class="hljs-keyword">new</span> SplObjectStorage();
+        <span class="hljs-variable">$this</span>-&gt;_name = <span class="hljs-variable">$name</span>;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">attach</span><span class="hljs-params">(SplObserver <span class="hljs-variable">$observer</span>)</span> </span>{
+        <span class="hljs-variable">$this</span>-&gt;_observers-&gt;attach(<span class="hljs-variable">$observer</span>);
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">detach</span><span class="hljs-params">(SplObserver <span class="hljs-variable">$observer</span>)</span> </span>{
+        <span class="hljs-variable">$this</span>-&gt;_observers-&gt;detach(<span class="hljs-variable">$observer</span>);
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">notify</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">foreach</span> (<span class="hljs-variable">$this</span>-&gt;_observers <span class="hljs-keyword">as</span> <span class="hljs-variable">$observer</span>) {
+            <span class="hljs-variable">$observer</span>-&gt;update(<span class="hljs-variable">$this</span>);
+        }
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getName</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-variable">$this</span>-&gt;_name;
+    }
+}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyObserver1</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">SplObserver</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span><span class="hljs-params">(SplSubject <span class="hljs-variable">$subject</span>)</span> </span>{
+        <span class="hljs-keyword">echo</span>  <span class="hljs-string">'观察owner1'</span>;
+    }
+}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyObserver2</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">SplObserver</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">update</span><span class="hljs-params">(SplSubject <span class="hljs-variable">$subject</span>)</span> </span>{
+        <span class="hljs-keyword">echo</span>  <span class="hljs-string">'观察owner2'</span>;
+    }
+}
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">otherClass</span></span>{
+  <span class="hljs-variable">$observer1</span> = <span class="hljs-keyword">new</span> MyObserver1();
+  <span class="hljs-variable">$observer2</span> = <span class="hljs-keyword">new</span> MyObserver2();
+  <span class="hljs-variable">$subject</span> = <span class="hljs-keyword">new</span> MySubject(<span class="hljs-string">"test"</span>);
+  <span class="hljs-variable">$subject</span>-&gt;attach(<span class="hljs-variable">$observer1</span>);
+  <span class="hljs-variable">$subject</span>-&gt;attach(<span class="hljs-variable">$observer2</span>);
+  <span class="hljs-variable">$subject</span>-&gt;notify();
+</code></pre>
+<p>   }
+<code>`</code>
+end, thank you!</p>
+        <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
+    </div>
+</div>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Sat, 01 Jul 2017 14:25:09 +0000</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script type="text/javascript">jQuery(document).ready(function () {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>

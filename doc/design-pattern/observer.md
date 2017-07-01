@@ -4,7 +4,7 @@
 ###实现Demo
 看看下面这个小demo吧
 ```
-    class MySubject implements SplSubject{
+ class MySubject implements SplSubject{
         private $_observers=[];
         private $_name;
         public function __construct($name) {
@@ -37,13 +37,12 @@
         }
     }
     class otherClass{
-      $observer1 = new MyObserver1();/*观察1实例*/
-      $observer2 = new MyObserver2();/*观察2实例*/
-      $subject = new MySubject("test");/*被观察者实例，已经实例化发生改变*/
-      $subject->attach($observer1);/*将观察对象1添加到被观察者容器中*/
-      $subject->attach($observer2);/*将观察对象2添加到被观察者容器中*/
-      $subject->notify(); /*通知所有的观察owner*/
+      $observer1 = new MyObserver1();
+      $observer2 = new MyObserver2();
+      $subject = new MySubject("test");
+      $subject->attach($observer1);
+      $subject->attach($observer2);
+      $subject->notify();
    }
-
 ```
 end, thank you!
