@@ -5,5 +5,5 @@
 -----
 *  [单例模式](singel-instance.md)
 *  [工厂模式](factory.md)
-*  [观察模式](observer.md)
+*  [观察Owner模式](observer.md)
 
