@@ -12,7 +12,7 @@
 new XXX,actually也是一种硬编码！！！
 
 ###3.Specific 实现
-     好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个实例吧.
+好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个实例吧.
 创建一个接口
 ```
     interface Shape{
@@ -20,6 +20,7 @@ new XXX,actually也是一种硬编码！！！
         public function getCircumference();
     }
 ```
+
 Rectangle类实现接口
 ```
     class Rectangle implements shape{
@@ -38,6 +39,7 @@ Rectangle类实现接口
         }
     }
 ```
+
 Circle类实现接口
 ```
     class Circle implements shape{
@@ -54,7 +56,8 @@ Circle类实现接口
         }
      }
 ```
-*FactoryShape工厂类生产实例
+
+FactoryShape工厂类生产实例
 ```
     class FactoryShape{
 
@@ -73,7 +76,8 @@ Circle类实现接口
         }
     }
 ```
-*外部类调用
+
+外部类调用
 ```
     class otherClass{ 
         $rect = FactoryShape::create(5, 5);/*只需要通过参数传递到工厂方法就可以获取想要的实例，不需要直接new类本身，减去繁琐的构造参数，减少系统的耦合度，方便Other classs using，也方便接口的扩展*/
