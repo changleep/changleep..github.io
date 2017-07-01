@@ -1,10 +1,10 @@
-###定义
-  观察owner设计模式：观察owner(observer)和被观察owner(subject),或者说发布者和订阅者直接的一种设计模式.被观察者负责将观察者保存到容器，或者删除, 被观察owner发生改变可以通知他的所有观察owner.这是一种一对多的设计模式.
+###定义i
+  观察owner设计模式：观察owner(observer)和被观察owner(subject),或说public和subscrible的一种设计模式.被观察owner负责将观察owner保存到容器，或者删除, 被观察owner发生改变可以通知他的所有观察owner.这是一种一对多的设计模式.
 
 ###实现Demo
 看看下面这个小demo吧
 ```
- class MySubject implements SplSubject{
+   class MySubject implements SplSubject{
         private $_observers=[];
         private $_name;
         public function __construct($name) {
@@ -43,6 +43,6 @@
       $subject->attach($observer1);
       $subject->attach($observer2);
       $subject->notify();
-   }
+    }
 ```
 end, thank you!
