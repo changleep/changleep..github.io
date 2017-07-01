@@ -9,15 +9,15 @@
 <link href="./assets/ccfa86b2/style.css" rel="stylesheet">
 <script src="./assets/43822d01/jquery.js"></script>
 <script src="./assets/60702fc5/js/bootstrap.js"></script>
-<script src="./assets/1bf1209e/jssearch.js"></script>    <title>工厂模式 - 观察模式 - leepy site home</title>
+<script src="./assets/1bf1209e/jssearch.js"></script>    <title>工厂模式 - 设计模式 - leepy site home</title>
 </head>
 <body>
 
 <div class="wrap">
-    <nav id="w18" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w18-collapse"><span class="sr-only">Toggle navigation</span>
+    <nav id="w10" class="navbar-inverse navbar-fixed-top navbar"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w10-collapse"><span class="sr-only">Toggle navigation</span>
 <span class="icon-bar"></span>
 <span class="icon-bar"></span>
-<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">leepy site home</a></div><div id="w18-collapse" class="collapse navbar-collapse"><ul id="w19" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./guide-index.html">leepy site home</a></div><div id="w10-collapse" class="collapse navbar-collapse"><ul id="w11" class="navbar-nav nav"><li><a href="./guide-README.html">Guide</a></li></ul><div class="navbar-form navbar-left" role="search">
   <div class="form-group">
     <input id="searchbox" type="text" class="form-control" placeholder="Search">
   </div>
@@ -31,22 +31,89 @@
     
 <div class="row">
     <div class="col-md-2">
-                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-15" data-toggle="collapse" data-parent="#navigation">单例模式 <b class="caret"></b></a><div id="navigation-15" class="submenu panel-collapse collapse in"><a class="list-group-item" href="./guide-singel-instance.html">单例模式</a>
-<a class="list-group-item active" href="./guide-factory.html">工厂模式</a>
-<a class="list-group-item" href="./guide-observer.html">观察模式</a></div>
-<a class="list-group-item active" href="#navigation-16" data-toggle="collapse" data-parent="#navigation">工厂模式 <b class="caret"></b></a><div id="navigation-16" class="submenu panel-collapse collapse in"><a class="list-group-item" href="./guide-singel-instance.html">单例模式</a>
-<a class="list-group-item active" href="./guide-factory.html">工厂模式</a>
-<a class="list-group-item" href="./guide-observer.html">观察模式</a></div>
-<a class="list-group-item active" href="#navigation-17" data-toggle="collapse" data-parent="#navigation">观察模式 <b class="caret"></b></a><div id="navigation-17" class="submenu panel-collapse collapse in"><a class="list-group-item" href="./guide-singel-instance.html">单例模式</a>
+                <div id="navigation" class="list-group"><a class="list-group-item active" href="#navigation-9" data-toggle="collapse" data-parent="#navigation">设计模式 <b class="caret"></b></a><div id="navigation-9" class="submenu panel-collapse collapse in"><a class="list-group-item" href="./guide-singel-instance.html">单例模式</a>
 <a class="list-group-item active" href="./guide-factory.html">工厂模式</a>
 <a class="list-group-item" href="./guide-observer.html">观察模式</a></div></div>    </div>
     <div class="col-md-9 guide-content" role="main">
-        <div class="toc"><ol><li><a href="#">工厂模式</a></li></ol></div>
-<h2>工厂模式 <span id=""></span><a href="#" class="hashlink">&para;</a></h2><h3>1.工厂模式? <span id="1"></span><a href="#1" class="hashlink">&para;</a></h3><p>单例从字面上理解为单个实例，也就是说只负责创建类的单个实例.为什么要这么做，有什么好处呢, 这要看实�
-应用场景了.最常见的一个实例就是数据库连接类.假如在这种case下不使用单例的话，每次访问数据库就创建一个实例.</p>
-<h3>2.使用单例的优势? <span id="2"></span><a href="#2" class="hashlink">&para;</a></h3><p>前面讲了单例就是只实例一次。那这样的设计模式有什么优势呢，适合某些特定的类.就说客户端同服务端交互，只要设计数据读写，这时候离不开数据库的访问.那么每个用户访问
-一次都得创建一次数据库连接，实他们只要访问同一台db服务器，创建这些实例的过程都&gt;是一样的，这时候就考虑使用单例子，减少了实例的创建.</p>
-<h3>3.实现 <span id="3"></span><a href="#3" class="hashlink">&para;</a></h3><p>好了废话这么多也许你早就不耐烦了.那么直接上代码讲解单例子的实现步骤.</p>
+        <h3>1.什么叫工厂模式？ <span id="1"></span><a href="#1" class="hashlink">&para;</a></h3><p>定义一个类创建一个专门生成某个接口不同实现的实例的�
+��
+�方法（根据�
+�置或�
+参数）. </p>
+<h3>2.使用工厂模式的好处? <span id="2"></span><a href="#2" class="hashlink">&para;</a></h3><p>隐藏了创建过程的复杂度，不需要直接new类就可以获取想要类的实例。
+1.隐藏�
+�体类名，很多类隐藏得很深的，而且可能会在后续版本换掉
+2.避�
+�你辛苦的准备构造方法的参数
+3.这个工厂类可以被�
+�置成�
+�它类
+4.这个工厂对象可以被传递</p>
+<p>最后来句重要的
+new XXX�
+�实也是一种硬编码！！！</p>
+<h3>3.� <span id=""></span><a href="#" class="hashlink">&para;</a></h3><p>�体的实现
+好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个实例吧.
+<code>`</code>
+interface Shape{</p>
+<pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>;
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCircumference</span><span class="hljs-params">()</span></span>;
+</code></pre>
+<p>}</p>
+<p>class Rectangle implements shape{</p>
+<pre><code class="hljs php"><span class="hljs-keyword">private</span> <span class="hljs-variable">$width</span>;
+<span class="hljs-keyword">private</span> <span class="hljs-variable">$height</span>;
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(<span class="hljs-variable">$width</span>, <span class="hljs-variable">$height</span>)</span></span>{
+    <span class="hljs-variable">$this</span>-&gt;width = <span class="hljs-variable">$width</span>;
+    <span class="hljs-variable">$this</span>-&gt;height = <span class="hljs-variable">$height</span>;
+}
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-variable">$this</span>-&gt;width*<span class="hljs-variable">$this</span>-&gt;height;
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCircumference</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>*(<span class="hljs-variable">$this</span>-&gt;width + <span class="hljs-variable">$this</span>-&gt;height);
+}
+</code></pre>
+<p>}</p>
+<p>class Circle implements shape{</p>
+<pre><code class="hljs php"><span class="hljs-keyword">private</span> <span class="hljs-variable">$radius</span>=<span class="hljs-number">0</span>;
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">__construct</span><span class="hljs-params">(<span class="hljs-variable">$radius</span>)</span></span>{
+    <span class="hljs-variable">$this</span>-&gt;radius = <span class="hljs-variable">$radius</span>;
+}
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getArea</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">return</span> M_PI*pow(<span class="hljs-variable">$this</span>-&gt;radius, <span class="hljs-number">2</span>);
+}
+
+<span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCircumference</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-number">2</span>*M_PI*<span class="hljs-variable">$this</span>-&gt;radius;
+}
+</code></pre>
+<p>}</p>
+<p>class FactoryShape{</p>
+<pre><code class="hljs php"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">create</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">switch</span>(func_num_args()){
+        <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Circle(func_get_arg(<span class="hljs-number">0</span>));
+        <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Rectangle(func_get_arg(<span class="hljs-number">0</span>), func_get_arg(<span class="hljs-number">1</span>));
+
+        <span class="hljs-keyword">default</span>:
+          <span class="hljs-comment"># code....</span>
+          <span class="hljs-keyword">break</span>;
+    }
+     
+}
+</code></pre>
+<p>}</p>
+<p>$rect = FactoryShape::create(5, 5);/<em>只需要通过参数传递到工厂方法就可以获取想要的实例，不需要直接new类本身，减去繁琐的构造参数，减少系统的耦合度，方便�
+�他�
+调用，也方便接口的扩展</em>/
+$area = $rect-&gt;getArea();
+$circumference = $rect-&gt;getCircumference();
+echo "面积是：".$area;</p>
+<p>echo "周长是：".$circumference;
+<code>`</code></p>
         <div class="toplink"><a href="#" class="h1" title="go to top"><span class="glyphicon glyphicon-arrow-up"></a></div>
     </div>
 </div>
@@ -55,7 +122,7 @@
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Fri, 30 Jun 2017 03:50:58 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Sat, 01 Jul 2017 07:55:01 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script type="text/javascript">jQuery(document).ready(function () {
