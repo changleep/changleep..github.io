@@ -36,24 +36,17 @@
 <a class="list-group-item" href="./guide-observer.html">观察Owner模式</a>
 <a class="list-group-item active" href="./guide-strategy.html">策略模式</a></div></div>    </div>
     <div class="col-md-9 guide-content" role="main">
-        <h3>1.什么叫策略模式？ <span id="1"></span><a href="#1" class="hashlink">&para;</a></h3><p>抽象接口定义的方法，实现某一个功能有多种算法或�
-策略.这些实现由不同的子类complete.根据需求由调用不同的策略。交由策略类来处理，根据参数获取不同的策略对象instance.</p>
-<h3>2.使用工厂模式的好处? <span id="2"></span><a href="#2" class="hashlink">&para;</a></h3><p>隐藏了创建过程的复杂度，不需要直接new类就可以获取想要类的实例。
-1.隐藏�
-�体类名，很多类隐藏得很深的，而且可能会在后续版本换掉，子类可以修改，可以添加�
-�他子类，隐藏细节.
-2.避�
-�你辛苦的准备构造方法的参数
-3.这个策略类可以被�
-�置成�
-�它类.</p>
+        <h3>1.什么叫策略模式？ <span id="1"></span><a href="#1" class="hashlink">&para;</a></h3><p>抽象接口定义的方法，实现某一个功能有多种算法else策略.这些实现由不同的子类complete.根据需求由调用不同的策略。交由策略类来处理，根据参数获取不同的策略对象instance.</p>
+<h3>2.使用工厂模式的好处? <span id="2"></span><a href="#2" class="hashlink">&para;</a></h3><p>隐藏了创建过程的复杂度，不需要直接new类就可以获取想要类的实例。</p>
+<ul>
+<li>隐藏Specific className，很多类隐藏得很深的，而且可能会在后续版本换掉，子类可以修改，可以添加Other subclass，隐藏细节.</li>
+<li>aviod你辛苦的准备构造方法的参数</li>
+<li>这个策略类可以被config成�
+�它类</li>
+</ul>
 <p>最后来句重要的
-new XXX�
-�实也是一种硬编码！！！</p>
-<h3>3.� <span id=""></span><a href="#" class="hashlink">&para;</a></h3><p>�体的实现
-好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个demo吧.
-首�
-�创建一个接口
+new XXX(),也是一种硬编码！！！</p>
+<h3>3.Demo display <span id="3demo-display"></span><a href="#3demo-display" class="hashlink">&para;</a></h3><p>好了废话这么多也许你早就不耐烦了。那么直接上代码看下一个demo吧.
 <code>`</code></p>
 <pre><code class="hljs php">    <span class="hljs-comment">/**抽象策略角色 
     * Interface RotateItem 
@@ -139,7 +132,7 @@ new XXX�
 </div>
 
 <footer class="footer">
-        <p class="pull-right"><small>Page generated on Sat, 01 Jul 2017 15:04:41 +0000</small></p>
+        <p class="pull-right"><small>Page generated on Sun, 02 Jul 2017 02:25:27 +0000</small></p>
     Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
 
 <script type="text/javascript">jQuery(document).ready(function () {
